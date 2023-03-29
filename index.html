@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>make your note</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="heading_container">
+      <h1 id="heading">Make your Note</h1>
+    </div>
+    <div class="container">
+      <input
+        type="text"
+        name="title"
+        id="note_title"
+        placeholder="write title here..."
+      />
+      <textarea
+        name="note_body"
+        id="note_body"
+        cols="38"
+        rows="13"
+        placeholder="write note here..."
+      ></textarea>
+      <div id="btn_container">
+        <button type="button" id="save_button" onclick="addUser()">save</button>
+      </div>
+      <div id="card_container">
+        <!-- <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">note title</h5>
+            <p class="card-text">
+              notes
+            </p>
+            <button id="delete_btn">Delete Note</button>
+          </div>
+        </div> -->
+      </div>
+        <input id="search_box"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button id="search_button" type="submit">X</button>
+      <script src="./note.js"></script>
+    </div>
+  </body>
+</html>

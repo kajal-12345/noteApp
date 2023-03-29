@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <h2 id="login_header">User Login</h2>
+
+    <div id="form_container">
+      <form autocomplete="on">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >userName</label
+          >
+          <input
+            type="text"
+            class="form-control user_name"
+            id="userName"
+            name="userName"
+            placeholder="Enter userName"
+          />
+        </div>
+        <label for="inputPassword5" class="form-label">Password</label>
+        <input
+          type="password"
+          id="inputPassword5"
+          class="form-control"
+          aria-labelledby="passwordHelpBlock"
+        />
+        <button type="submit" id="reg"  class="form_submit" onclick="addUser()">
+          <a href="./index.html" target="_blank">reg</a>
+        </button>
+        <button type="submit" id="log" class="form_submit" >
+          <a href="./index.html" target="_blank">log</a>
+        </button>
+      </form>
+    </div>
+    <script src="./note.js"></script>
+  </body>
+</html>

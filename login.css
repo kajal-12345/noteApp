@@ -1,0 +1,31 @@
+#form_container{
+    width: 290px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 3px;
+    border: 1px solid #6b6990 ;
+    position: relative;
+    top: 14px;
+    background-color: #F6F1F1;
+    border-radius: 4px;
+}
+#login_header{
+margin-left: 333px;
+padding-left: 546px;
+color: #d479ba;
+}
+.form_submit{
+    margin-left: 74px;
+    margin-top: 87px;
+    padding-bottom: 3px;
+    width: 115px;
+    border-radius: 3px;
+     background-color: #d479ba;
+     border: 1px solid #6b6990 ;
+  font-size: 1.2rem;
+  color: #EBECF1;
+}
+#form_submit > a{
+text-decoration: none;
+color: #353090;
+}
