@@ -1,20 +1,17 @@
-// document.getElementById("save_button").addEventListener("click", addUser);
-let user_id = document.getElementById("userName");
+document.getElementById("save_button").addEventListener("click", add_Note);
+let user = localStorage.getItem("current_user");
+show_Note();
+// let user_id = document.getElementById("userName");
 let note_obj = {};
 let note_arr = [];
 let preNotes = [];
-let user;
-function addUser() {
-  alert(`${user_id.value} in user`);
-  
-  localStorage.setItem(user_id.value,JSON.stringify(note_arr))
-    }
 function add_Note() {
+  // e.preventDefault();
   let key = document.getElementById("note_title");
   let value = document.getElementById("note_body");
   note_obj.title = key.value;
   note_obj.text = value.value;
-  preNotes = JSON.parse(localStorage.getItem("note"));
+  preNotes = JSON.parse(localStorage.getItem(user));
   if (!(key.value || value.value)) {
     alert("please add some note");
   } else {
@@ -23,17 +20,17 @@ function add_Note() {
     } else {
       note_arr.unshift(note_obj);
     }
-    localStorage.setItem("note", JSON.stringify(preNotes || note_arr));
+    localStorage.setItem(user, JSON.stringify(preNotes || note_arr));
     key.value = "";
     value.value = "";
     show_Note();
-    location.reload();
+    // location.reload();
   }
 }
 
 function show_Note() {
   let stored_notes = [];
-  stored_notes = JSON.parse(localStorage.getItem("note"));
+  stored_notes = JSON.parse(localStorage.getItem(user));
   let html = "";
   stored_notes.forEach((element, index) => {
     html += `
@@ -55,19 +52,23 @@ function show_Note() {
     note_ele.innerHTML = "";
   }
 }
-window.onload = () => {
-  show_Note();
-};
+// window.onload = () => {
+//   show_Note();
+// };
 function ondelete(index) {
-  let notes = JSON.parse(localStorage.getItem("note"));
+  let notes = JSON.parse(localStorage.getItem(user));
   notes.splice(index, 1);
-  localStorage.setItem("note" + id, JSON.stringify(notes));
+  localStorage.setItem(user, JSON.stringify(notes));
   console.log("delete notes");
-  location.reload();
+  // location.reload();
   show_Note();
 }
+// if(window.location.href == "./index.html"){
+//   show_Note();
+// }
 function load() {
-  window.onload = show_Note();
+    show_Note();
+  
   document.getElementById("search_box").value = "";
 }
 // location.reload
@@ -76,7 +77,7 @@ document.getElementById("search_button").addEventListener("click", load);
 
 function search_Note() {
   let html = "";
-  let notes = JSON.parse(localStorage.getItem("note"));
+  let notes = JSON.parse(localStorage.getItem(user));
 
   let search_val = document.getElementById("search_box").value.toLowerCase();
 
@@ -100,7 +101,7 @@ function search_Note() {
   });
   document.getElementById("card_container").innerHTML = html;
 }
-let notes = JSON.parse(localStorage.getItem("note"));
+let notes = JSON.parse(localStorage.getItem(user));
 
 function onedit(note_index) {
   let html = "";
@@ -124,7 +125,7 @@ function onedit(note_index) {
 function onsave(index) {
   notes[index].title = document.getElementById("title").value;
   notes[index].text = document.getElementById("text").value;
-  localStorage.setItem("note", JSON.stringify(notes));
+  localStorage.setItem(user, JSON.stringify(notes));
   let html = "";
   html = `<div class="card">
       <div class="card-body">
@@ -137,6 +138,6 @@ function onsave(index) {
       </div>
       </div>`;
   document.getElementById("card_container").innerHTML = html;
-  location.reload();
+  // location.reload();
   show_Note();
 }
